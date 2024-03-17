@@ -1,10 +1,10 @@
-import requests, concurrent.futures, time
+import concurrent.futures
+import time
 from threading import Lock
-import pandas as pd
+
 import numpy as nm
-
-
-
+import pandas as pd
+import requests
 
 
 class Items:
