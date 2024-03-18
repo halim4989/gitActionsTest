@@ -1,10 +1,8 @@
-import concurrent.futures
-import time
+import concurrent.futures, requests, time
 from threading import Lock
-
 import numpy as nm
 import pandas as pd
-import requests
+
 
 
 class Items:
@@ -12,7 +10,6 @@ class Items:
         """
         Default Region: The Forge
         """
-
         self.region = region
         self.itemIds = itemIds
         self.ItemInfoList = []
@@ -215,16 +212,12 @@ class Items:
         # print("dfItemInfoList: ", len(self.dfItemInfoList), '\n\n\n')
 
 
-# if __name__ == "__main__":
-print("Starting...")
-
-print("Collecting All ItemsID and Names...")
-dfTypeids = pd.read_csv("http://www.fuzzwork.co.uk/resources/typeids.csv")
-itemIds = list(dfTypeids["0"].values)
-print(f"-->Total items to Check: {len(itemIds)}")
-
-lock = Lock()
-
-itemsInfo = Items(itemIds[:5000])
-
-itemsInfo.start(199, 37)
+if __name__ == "__main__":
+  print("Starting...")
+  print("Collecting All ItemsID and Names...")
+  dfTypeids = pd.read_csv("http://www.fuzzwork.co.uk/resources/typeids.csv")
+  itemIds = list(dfTypeids["0"].values)
+  print(f"-->Total items to Check: {len(itemIds)}")
+  lock = Lock()
+  itemsInfo = Items(itemIds[:5000])
+  itemsInfo.start(199, 37)
