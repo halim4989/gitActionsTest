@@ -4,7 +4,6 @@ import numpy as nm
 import pandas as pd
 
 
-
 class Items:
     def __init__(self, itemIds, region="10000002"):
         """
@@ -213,11 +212,11 @@ class Items:
 
 
 if __name__ == "__main__":
-  print("Starting...")
-  print("Collecting All ItemsID and Names...")
-  dfTypeids = pd.read_csv("http://www.fuzzwork.co.uk/resources/typeids.csv")
-  itemIds = list(dfTypeids["0"].values)
-  print(f"-->Total items to Check: {len(itemIds)}")
-  lock = Lock()
-  itemsInfo = Items(itemIds[:5000])
-  itemsInfo.start(199, 37)
+    print("Starting...")
+    print("Collecting All ItemsID and Names...")
+    dfTypeids = pd.read_csv("http://www.fuzzwork.co.uk/resources/typeids.csv")
+    itemIds = list(dfTypeids["0"].values)
+    print(f"-->Total items to Check: {len(itemIds)}")
+    lock = Lock()
+    itemsInfo = Items(itemIds[:5000])
+    itemsInfo.start(199, 37)
