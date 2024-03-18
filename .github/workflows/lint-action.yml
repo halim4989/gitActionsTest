@@ -30,5 +30,7 @@ jobs:
       - name: Lint Action
         uses: wearerequired/lint-action@v2.3.0
         with:
+          auto_fix: true
           black: true
           flake8: true
+          flake8_auto_fix: false
